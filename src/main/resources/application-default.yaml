@@ -1,0 +1,22 @@
+logging:
+  level:
+    cn.gekal.sample.junit: DEBUG
+    root: INFO
+
+gekal:
+  # サンプルプロパティー
+  properties:
+    property1: "hoge"
+    property2: "fuga"
+
+  rest-template:
+    sample:
+      # リードタイムアウト
+      read-timeout: "PT10S"
+      # 接続タイムアウト
+      connect-timeout: "PT3S"
+
+http-bin:
+  method:
+    # POSTの送信先
+    post: https://httpbin.org/post

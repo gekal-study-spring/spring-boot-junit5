@@ -1,0 +1,47 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.3'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'jacoco'
+}
+
+group = 'cn.gekal.sample'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.apache.commons:commons-lang3'
+
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    // テスト
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'com.openpojo:openpojo:0.9.1'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+test {
+    // report is always generated after tests run
+    finalizedBy jacocoTestReport
+}
+jacocoTestReport {
+    // tests are required to run before generating the report
+    dependsOn test
+}

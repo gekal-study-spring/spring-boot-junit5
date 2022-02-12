@@ -1,0 +1,17 @@
+### テスト
+POST http://localhost:8080/test/
+Content-Type: application/json
+
+{
+  "value1": "aaaaa",
+  "value2": "bbbbb"
+}
+
+### HttpBinのテストAPI(POST)
+POST http://localhost:8080/httpbin/method/post
+Content-Type: application/json
+
+{
+  "value1": "aaaaa",
+  "value2": "bbbbb"
+}

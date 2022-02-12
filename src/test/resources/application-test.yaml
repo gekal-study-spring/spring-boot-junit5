@@ -1,0 +1,5 @@
+gekal:
+  # サンプルプロパティー
+  properties:
+    property1: "hoge"
+    property2: "fuga"
